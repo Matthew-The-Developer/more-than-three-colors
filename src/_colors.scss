@@ -1,0 +1,147 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+$colors: "error", "success", "special";
+
+@mixin color($theme) {
+  @each $color in $colors {
+    .mat-badge-#{$color} {
+      --mat-badge-background-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-badge-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+    }
+
+    [mat-button].mat-#{$color} {
+      --mdc-text-button-label-text-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-text-button-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-filled-button-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-text-button-ripple-color: #{mat.get-theme-color($theme, $color, default)}1a;
+    }
+    
+    [mat-raised-button].mat-#{$color} {
+      --mdc-protected-button-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-protected-button-label-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-protected-button-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-protected-button-ripple-color: color-mix(in srgb, #{mat.get-theme-color($theme, $color, default-contrast)} 10%, transparent);
+    }
+  
+    [mat-stroked-button].mat-#{$color} {
+      --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-outlined-button-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-outlined-button-ripple-color: #{mat.get-theme-color($theme, $color, default)}1a;
+    }
+  
+    [mat-flat-button].mat-#{$color} {
+      --mdc-filled-button-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-filled-button-label-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-filled-button-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-filled-button-ripple-color: color-mix(in srgb, #{mat.get-theme-color($theme, $color, default-contrast)} 10%, transparent);
+    }
+
+    [mat-icon-button].mat-#{$color} {
+      --mdc-icon-button-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-icon-button-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-icon-button-ripple-color: #{mat.get-theme-color($theme, $color, default)}1a;
+    }
+    
+    mat-checkbox.mat-#{$color} {
+      --mdc-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-checkbox-selected-focus-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-hover-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-pressed-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-pressed-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-chip.mat-#{$color} {
+      --mdc-chip-elevated-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-elevated-selected-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-elevated-disabled-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-flat-disabled-selected-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-selected-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-selected-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-label-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-selected-label-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-with-icon-selected-icon-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-with-trailing-icon-trailing-icon-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-chip-selected-trailing-icon-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+    }
+
+    mat-chip-option.mat-#{$color} {
+      --mdc-chip-elevated-selected-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-elevated-disabled-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-flat-disabled-selected-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-chip-selected-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-selected-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-selected-label-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-chip-with-icon-selected-icon-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-chip-selected-trailing-icon-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+    }
+
+    mat-form-field.mat-#{$color} {
+      --mdc-outlined-text-field-caret-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-outlined-text-field-focus-outline-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-outlined-text-field-focus-label-text-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-icon.mat-#{$color} {
+      --mat-icon-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-list-option.mat-#{$color} {
+      --mdc-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mdc-checkbox-selected-focus-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-hover-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-pressed-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-checkbox-selected-pressed-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-progress-bar.mat-#{$color} {
+      --mdc-linear-progress-active-indicator-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-linear-progress-track-color: #{mat.get-theme-color($theme, $color, default)}40;
+    }
+
+    mat-spinner.mat-#{$color} {
+      --mdc-circular-progress-active-indicator-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-radio-button.mat-#{$color} {
+      --mdc-radio-selected-focus-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-radio-selected-hover-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-radio-selected-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-radio-selected-pressed-icon-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-radio-checked-ripple-color: #{mat.get-theme-color($theme, $color, default)};
+    }
+
+    mat-slide-toggle.mat-#{$color} {
+      --mdc-switch-selected-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-pressed-state-layer-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-focus-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-hover-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-pressed-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-switch-selected-focus-track-color: #{mat.get-theme-color($theme, $color, 300)};
+      --mdc-switch-selected-hover-track-color: #{mat.get-theme-color($theme, $color, 300)};
+      --mdc-switch-selected-pressed-track-color: #{mat.get-theme-color($theme, $color, 300)};
+      --mdc-switch-selected-track-color: #{mat.get-theme-color($theme, $color, 300)};
+    }
+
+    mat-slider.mat-#{$color} {
+      --mdc-slider-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-focus-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-hover-handle-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-active-track-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-inactive-track-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-with-tick-marks-inactive-container-color: #{mat.get-theme-color($theme, $color, default)};
+      --mdc-slider-with-tick-marks-active-container-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+      --mat-slider-ripple-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-slider-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default)}0d;
+      --mat-slider-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default)}33;
+    }
+  }
+}

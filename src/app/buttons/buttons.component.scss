@@ -1,6 +1,10 @@
 :host {
-  height: inherit;
   display: grid;
+  gap: 1rem;
 
-  place-content: center center;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 }

@@ -3,267 +3,52 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
+@use "sass:map";
+
+@use './colors' as colors;
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$primary: (
-    50 : #e2f1f6,
-    100 : #b8dce8,
-    200 : #88c5d9,
-    300 : #58adc9,
-    400 : #359cbe,
-    500 : #118ab2,
-    600 : #0f82ab,
-    700 : #0c77a2,
-    800 : #0a6d99,
-    900 : #055a8a,
-    A100 : #b7e2ff,
-    A200 : #84cdff,
-    A400 : #51b8ff,
-    A700 : #37aeff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$primary-palette: mat.define-palette($primary);
-
-$primary-theme: mat.define-light-theme((
-  color: (
-    primary: $primary-palette,
-    accent: $primary-palette,
-    warn: $primary-palette,
-  ),
-));
-
-$pending: (
-    50 : #e6f8f6,
-    100 : #c0ede9,
-    200 : #97e2db,
-    300 : #6dd6cc,
-    400 : #4dcdc1,
-    500 : #2ec4b6,
-    600 : #29beaf,
-    700 : #23b6a6,
-    800 : #1daf9e,
-    900 : #12a28e,
-    A100 : #d3fff8,
-    A200 : #a0fff1,
-    A400 : #6dffe9,
-    A700 : #53ffe6,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$error: (
-    50 : #fde5e8,
-    100 : #fabdc5,
-    200 : #f7919e,
-    300 : #f46577,
-    400 : #f14459,
-    500 : #ef233c,
-    600 : #ed1f36,
-    700 : #eb1a2e,
-    800 : #e81527,
-    900 : #e40c1a,
-    A100 : #ffffff,
-    A200 : #ffdbdd,
-    A400 : #ffa8ac,
-    A700 : #ff8f94,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$success: (
-    50 : #e1faf4,
-    100 : #b4f3e3,
-    200 : #83ebd0,
-    300 : #51e2bd,
-    400 : #2bdcae,
-    500 : #06d6a0,
-    600 : #05d198,
-    700 : #04cc8e,
-    800 : #03c684,
-    900 : #02bc73,
-    A100 : #e5fff3,
-    A200 : #b2ffdd,
-    A400 : #7fffc6,
-    A700 : #65ffbb,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$warn: (
-    50 : #fef4ec,
-    100 : #fce3d0,
-    200 : #fad1b0,
-    300 : #f7be90,
-    400 : #f6b079,
-    500 : #f4a261,
-    600 : #f39a59,
-    700 : #f1904f,
-    800 : #ef8645,
-    900 : #ec7533,
-    A100 : #ffffff,
-    A200 : #fffefe,
-    A400 : #ffddcb,
-    A700 : #ffccb2,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$special: (
-    50 : #f3f0f7,
-    100 : #e2dbec,
-    200 : #cfc3e0,
-    300 : #bcaad3,
-    400 : #ad98c9,
-    500 : #9f86c0,
-    600 : #977eba,
-    700 : #8d73b2,
-    800 : #8369aa,
-    900 : #72569c,
-    A100 : #ffffff,
-    A200 : #e2cfff,
-    A400 : #c39cff,
-    A700 : #b483ff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$special-palette: mat.define-palette($special);
-
-$special-theme: mat.define-light-theme((
-  color: (
-    primary: $special-palette,
-    accent: $special-palette,
-    warn: $special-palette,
-  ),
-));
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$more-than-three-colors-primary: mat.define-palette(mat.$indigo-palette);
-$more-than-three-colors-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$more-than-three-colors-warn: mat.define-palette(mat.$red-palette);
+@import './theme.scss';
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $more-than-three-colors-theme: mat.define-light-theme((
   color: (
-    primary: $more-than-three-colors-primary,
-    accent: $more-than-three-colors-accent,
-    warn: $more-than-three-colors-warn,
+    primary: $primary-palette,
+    accent: $pending-palette,
+    warn: $warn-palette,
   ),
   typography: mat.define-typography-config(),
   density: 0
 ));
+
+$more-than-three-colors-theme: map.deep-merge(
+  $more-than-three-colors-theme,
+  (
+    error: $error-palette,
+    success: $success-palette,
+    special: $special-palette,
+    color: (
+      error: $error-palette,
+      success: $success-palette,
+      special: $special-palette,
+    )
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 html {
   @include mat.all-component-themes($more-than-three-colors-theme);
-}
-
-*.primary {
-  @include mat.all-component-colors($primary-theme);
-}
-
-*.special {
-  @include mat.all-component-colors($special-theme);
+  @include colors.color($more-than-three-colors-theme);
 }
 
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden; }
