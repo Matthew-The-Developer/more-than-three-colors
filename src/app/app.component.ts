@@ -13,6 +13,7 @@ import { ProgressSpinnersComponent } from './progress-spinners/progress-spinners
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component';
 import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidesComponent } from './slides/slides.component';
+import { SteppersComponent } from './steppers/steppers.component';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,7 @@ import { SlidesComponent } from './slides/slides.component';
     RadioButtonsComponent,
     SlideTogglesComponent,
     SlidesComponent,
+    SteppersComponent,
     RouterOutlet,
   ],
   templateUrl: './app.component.html',

@@ -1,5 +1,8 @@
 import { Directive, ElementRef, effect, inject, input } from '@angular/core';
 
+const badgeClasses = ['mat-badge-primary', 'mat-badge-accent', 'mat-badge-warn'];
+const defaultClasses = ['mat-primary', 'mat-accent', 'mat-warn'];
+
 @Directive({
   selector: '[material-color]',
   standalone: true
@@ -13,29 +16,39 @@ export class MaterialColorDirective {
     effect(() => {
       const color = this.color();
       
+      console.log(this.elementRef.nativeElement.tagName);
+
       if (color) {
         if (this.elementRef.nativeElement.classList.contains('mat-badge')) {
-          if (this.elementRef.nativeElement.classList.contains('mat-badge-primary')) {
-            this.elementRef.nativeElement.classList.replace('mat-badge-primary', `mat-badge-${color}`);
-          } else if (this.elementRef.nativeElement.classList.contains('mat-badge-accent')) {
-            this.elementRef.nativeElement.classList.replace('mat-badge-accent', `mat-badge-${color}`);
-          } else if (this.elementRef.nativeElement.classList.contains('mat-badge-warn')) {
-            this.elementRef.nativeElement.classList.replace('mat-badge-warn', `mat-badge-${color}`);
-          } else {
+          let replacedDefault = false;
+
+          badgeClasses.forEach(defaultColor => {
+            if (this.elementRef.nativeElement.classList.contains(defaultColor)) {
+              this.elementRef.nativeElement.classList.replace(defaultColor, `mat-badge-${color}`);
+              replacedDefault = true;
+            }
+          });
+
+          if (!replacedDefault) {
             this.elementRef.nativeElement.classList.add(`mat-badge-${color}`);
           }
         } else {
-          if (this.elementRef.nativeElement.classList.contains('mat-primary')) {
-            this.elementRef.nativeElement.classList.replace('mat-primary', `mat-${color}`);
-          } else if (this.elementRef.nativeElement.classList.contains('mat-accent')) {
-            this.elementRef.nativeElement.classList.replace('mat-accent', `mat-${color}`);
-          } else if (this.elementRef.nativeElement.classList.contains('mat-warn')) {
-            this.elementRef.nativeElement.classList.replace('mat-warn', `mat-${color}`);
-          } else {
+          let replacedDefault = false;
+
+          defaultClasses.forEach(defaultColor => {
+            if (this.elementRef.nativeElement.classList.contains(defaultColor)) {
+              this.elementRef.nativeElement.classList.replace(defaultColor, `mat-${color}`);
+              replacedDefault = true;
+            }
+          });
+
+          if (!replacedDefault) {
             this.elementRef.nativeElement.classList.add(`mat-${color}`);
           }
         }
       }
     });
   }
+
+  
 }
