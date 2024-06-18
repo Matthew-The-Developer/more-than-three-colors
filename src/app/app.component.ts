@@ -4,7 +4,6 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { ChipsComponent } from './chips/chips.component';
 import { BadgesComponent } from './badges/badges.component';
-import { DatepickersComponent } from './datepickers/datepickers.component';
 import { FormFieldsComponent } from './form-fields/form-fields.component';
 import { ListsComponent } from './lists/lists.component';
 import { IconsComponent } from './icons/icons.component';
@@ -13,7 +12,7 @@ import { ProgressSpinnersComponent } from './progress-spinners/progress-spinners
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component';
 import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidesComponent } from './slides/slides.component';
-import { SteppersComponent } from './steppers/steppers.component';
+import { ToolbarsComponent } from './toolbars/toolbars.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +22,6 @@ import { SteppersComponent } from './steppers/steppers.component';
     ButtonsComponent,
     CheckboxesComponent,
     ChipsComponent,
-    DatepickersComponent,
     FormFieldsComponent,
     IconsComponent,
     ListsComponent,
@@ -32,7 +30,7 @@ import { SteppersComponent } from './steppers/steppers.component';
     RadioButtonsComponent,
     SlideTogglesComponent,
     SlidesComponent,
-    SteppersComponent,
+    ToolbarsComponent,
     RouterOutlet,
   ],
   templateUrl: './app.component.html',

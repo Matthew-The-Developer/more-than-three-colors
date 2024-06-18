@@ -143,5 +143,10 @@ $colors: "error", "success", "special";
       --mat-slider-hover-state-layer-color: #{mat.get-theme-color($theme, $color, default)}0d;
       --mat-slider-focus-state-layer-color: #{mat.get-theme-color($theme, $color, default)}33;
     }
+
+    mat-toolbar.mat-#{$color} {
+      --mat-toolbar-container-background-color: #{mat.get-theme-color($theme, $color, default)};
+      --mat-toolbar-container-text-color: #{mat.get-theme-color($theme, $color, default-contrast)};
+    }
   }
 }
